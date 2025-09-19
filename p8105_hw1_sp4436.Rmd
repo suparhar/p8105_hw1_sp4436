@@ -15,16 +15,24 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
+```{r Problem 1}
+library(tidyverse)
+library(moderndive)
+
+data("early_january_weather")  # loads the dataset
+skimr::skim(early_january_weather)
+
+#There are 15 variables in this data set
+
+#Variable names 
+names(early_january_weather)
+#The names of the variables are  "origin"     "year"       "month"      "day"        "hour"       "temp"       "dewp"       "humid" "wind_dir"   "wind_speed"    "wind_gust"  "precip"     "pressure"   "visib"      "time_hour". For year we can see that it is 2013 for every entry and that temp is in Fahrenheit.
+
+#number of rows and columns
+nrow(early_january_weather) #358 rows
+ncol(early_january_weather) #15 columns
+
+#mean temperature
+mean(early_january_weather$temp, na.rm = TRUE) #mean temp is 39.58 Fahrenheit.
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
