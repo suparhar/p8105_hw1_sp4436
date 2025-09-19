@@ -96,6 +96,6 @@ mean(df$fac_var)
 as.numeric(df$log_var)   
 as.numeric(df$char_var)  
 as.numeric(df$fac_var)  
-
-#When applying as.numeric() to each variable we see that for the logical variable, TRUE values are converted to 1 and FALSE values to 0. This explains why the mean of a logical vector works b/c it is just the proportion of true/1. For the character variable, all entries are converted to NA because characters have no numeric representation and that is why the mean fails bc there is no value to the variable. For the factor variable, the levels are converted to their underlying codes like 1,2,3. This shows why the mean of a factor fails as the integer codes are arbitrary labels and not meaningful values. 
 ```
+
+#When applying as.numeric() to each variable we see that for the logical variable, TRUE values are converted to 1 and FALSE values to 0. This explains why the mean of a logical vector works b/c it is just the proportion of true/1. For the character variable, all entries are converted to NA because characters have no numeric representation and that is why the mean fails bc there is no value to the variable. For the factor variable, the levels are converted to their underlying codes like 1,2,3. This shows why the mean of a factor fails as the integer codes are arbitrary labels and not meaningful values.
