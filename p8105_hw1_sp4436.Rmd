@@ -15,14 +15,17 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r Problem 1}
+```{r load packages, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(moderndive)
+library(ggplot2)
+library(tibble)
+```
 
+```{r Problem 1}
 #import and quickly view the data
 data("early_january_weather")  
 skimr::skim(early_january_weather)
-
 #There are 15 variables in this data set
 
 #find the variable names 
@@ -41,13 +44,11 @@ library(ggplot2)
 
 p <- ggplot(early_january_weather,
             aes(x = hour, y = temp, color = humid)) +
-  geom_point(alpha = 0.7) +
+  geom_point() +
   labs(title = "Temperature over Time (colored by Humidity)",
        x = "Time (hourly)", 
        y = "Temperature (°F)",
-       color = "Humidity") +
-  scale_color_viridis_c(option = "plasma") +
-  theme_minimal()
+       color = "Humidity")
 
 p
 
@@ -60,5 +61,9 @@ ggsave(
   width = 8, height = 4, units = "in", # size of the PDF
   device = "pdf"                       # file type
 )
+```
+
+```{r Problem 2}
+
 ```
 
